@@ -1,6 +1,7 @@
 import Head from "next/head";
 import ArticleList from "../components/ArticleList";
-import { server } from "imr/config";
+import { server } from "../config";
+
 
 export default function Home({ articles }) {
   return (
@@ -25,13 +26,4 @@ export const getStaticProps = async () => {
     },
   };
 };
-// export const getStaticProps = async () => {
-//   const END_POINT = "https://jsonplaceholder.typicode.com/posts?_limit=6";
-//   const response = await fetch(END_POINT);
-//   const articles = await response.json();
-//   return {
-//     props: {
-//       articles,
-//     },
-//   };
-// };
+
