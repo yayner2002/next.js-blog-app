@@ -1,5 +1,6 @@
 import Head from "next/head";
 import ArticleList from "../components/ArticleList";
+import { server } from "imr/config";
 
 export default function Home({ articles }) {
   return (
@@ -14,13 +15,23 @@ export default function Home({ articles }) {
     </>
   );
 }
+
 export const getStaticProps = async () => {
-  const END_POINT = "https://jsonplaceholder.typicode.com/posts?_limit=6";
-  const response = await fetch(END_POINT);
-  const articles = await response.json();
+  const res = await fetch(`${server}/api/articles`);
+  const articles = await res.json();
   return {
     props: {
       articles,
     },
   };
 };
+// export const getStaticProps = async () => {
+//   const END_POINT = "https://jsonplaceholder.typicode.com/posts?_limit=6";
+//   const response = await fetch(END_POINT);
+//   const articles = await response.json();
+//   return {
+//     props: {
+//       articles,
+//     },
+//   };
+// };
