@@ -2,12 +2,14 @@ import React from "react";
 import { server } from "../../../config";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Meta from "imr/components/Meta";
 
 const article = ({ article }) => {
   // const router = useRouter();
   // const { id } = router.query;
   return (
     <div>
+      <Meta title={article.title} description={article.excerpt}/>
       <h1>{article.title}</h1>
       <p>{article.body}</p>
       <br />
